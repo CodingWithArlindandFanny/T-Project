@@ -1,3 +1,4 @@
+/* Login position; Login stylesheet; */
     .login{
         position: absolute;
         top: calc(50% - 75px);
@@ -19,6 +20,54 @@
         font-size: 16pt;
         font-weight: 400;
         padding: 4px;
-        
 
     }
+
+    .login input [type=password]{
+        width: 250px;
+        height: 30px;
+        background: black;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 2px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16pt;
+        font-weight: 400;
+        padding: 4px;
+    }
+
+    .login input [type=button]{ 
+        width: 260px;
+        height: 35px;
+        background: black;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 2px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16pt;
+        font-weight: 400;
+        padding: 6px;
+        margin-top: 10px;
+    }
+
+    .login input [type=button]:hover{
+      opacity: 0.8;  
+    }
+
+    /* Hide Sign Up Form*/
+   .container{
+       display: none;
+   }
+
+   .container{
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 50px);
+    height: 150px;
+    width: 350px;
+    padding: 10px;
+
+   }
+
+ 
