@@ -1,37 +1,51 @@
 // Register Click Function, if clicked on Registration Form becomes visible
 
+// Change View between Login & Register Page
 document.getElementById('register-btn').addEventListener('click', function(event) {
-    event.preventDefault()
     document.getElementById('registerbox').style.display = 'block'
-
-})
-
-document.getElementById('register-btn').addEventListener('click', function(event){
-    event.preventDefault()
     document.getElementById('loginForm').style.display = 'none'
 })
 
+
 // Create an Account and get redirected to Login Page
-document.getElementById('createaccount').addEventListener('click' , function(event){
-    event.preventDefault();
-    document.getElementById('loginForm').style.display = 'block';
-    checkUsername(document.getElementById("regUsername").value);
-    checkPassword(document.getElementById("regPassword").value);
-    checkName(document.getElementById("regName").value);
-    checkLastname(document.getElementById("regLastname").value);
-    checkEmail(document.getElementById("regEmail").value);
-    checkAge(document.getElementById("regAge").value);
-    document.getElementById('registerbox').style.display ='none';
-})
+// document.getElementById('createaccount').addEventListener('click' , function(event){
+//     event.preventDefault();
+
+//     document.getElementById('loginForm').style.display = 'block';
+//     checkUsername(document.getElementById("regUsername").value);
+//     checkPassword(document.getElementById("regPassword").value);
+//     checkName(document.getElementById("regName").value);
+//     checkLastname(document.getElementById("regLastname").value);
+//     checkEmail(document.getElementById("regEmail").value);
+//     checkAge(document.getElementById("regAge").value);
+//     document.getElementById('registerbox').style.display ='none';
+
+    
+
+// })
+
 
 // Check for blank in registration (UserName) and stop redirect
 
+
+function validateInput(format, input){
+    let regExp = new RegExp(format)
+
+    return regExp.test(input)
+}
+
+
+console.log(validateInput('^\\d+$', '452801'))
+
+
 function checkUsername(username) {
     if (username !==''){
+        return true
        var validUsername = true;
     } else {
        var validUsername = false;
         alert('Please enter text in empty fields');
+        return false
     }
     return validUsername; 
 };
@@ -181,13 +195,18 @@ if(users === null){
   }
 
 
-document.getElementById("registerbox").addEventListener("click", function() {
+document.getElementById("createaccount").addEventListener("click", function() {
     username = document.getElementById("regUsername").value;
     firstname = document.getElementById("regFirstName").value;
     lastname = document.getElementById("regLastName").value;
     age = document.getElementById("regAge").value;
     email = document.getElementById("regEmail").value;
     password = document.getElementById("regPassword").value;
+
+    if(username == '' || firstname == '' || lastname == '' || age == '' || email == '' || password == ''){
+        alert('Please enter your personal information!')
+        return false
+    }
   
     users.push(new User(username, firstname, lastname, age, email, password));
     console.log(users);
