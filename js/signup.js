@@ -207,22 +207,25 @@ document.getElementById("createaccount").addEventListener("click", function() {
         alert('Please enter your personal information!')
         return false
     }
-  
+    
+
+
     users.push(new User(username, firstname, lastname, age, email, password));
     console.log(users);
     localStorage.setItem('users',JSON.stringify(users));
-    document.getElementById('register-btn').addEventListener('click', function(event) {
-        event.preventDefault()
-        document.getElementById('registerbox').style.display = 'block'
-       
-    })
+    
+    
+    document.getElementById('registerbox').style.display = 'none'
+    document.getElementById('loginForm').style.display = 'block'
+   
     
     document.getElementById('register-btn').addEventListener('click', function(event){
         event.preventDefault()
         document.getElementById('loginForm').style.display = 'none'
     })
       });
-
+    
+    //document.getElementById('createaccount').addEventListener('click', function(event){}
 
     // Redirect user to new html after successful login
       document.getElementById('login-btn').addEventListener('click' , function(event){
