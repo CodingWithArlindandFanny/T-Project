@@ -1,0 +1,24 @@
+.container{
+    position: absolute;
+    top: calc(30% - 60px);
+    left: calc(40% - 50px);
+    height: 150px;
+    width: 350px;
+    padding: 10px;
+    
+    }
+
+button {
+    background-color: rgb(49, 235, 43);
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 109%;
+    opacity: 0.75;
+    }
+    
+    button:hover {
+    opacity:1;
+    }

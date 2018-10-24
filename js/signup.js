@@ -6,108 +6,88 @@ document.getElementById('register-btn').addEventListener('click', function(event
     document.getElementById('loginForm').style.display = 'none'
 })
 
-
-// Create an Account and get redirected to Login Page
-// document.getElementById('createaccount').addEventListener('click' , function(event){
-//     event.preventDefault();
-
-//     document.getElementById('loginForm').style.display = 'block';
-//     checkUsername(document.getElementById("regUsername").value);
-//     checkPassword(document.getElementById("regPassword").value);
-//     checkName(document.getElementById("regName").value);
-//     checkLastname(document.getElementById("regLastname").value);
-//     checkEmail(document.getElementById("regEmail").value);
-//     checkAge(document.getElementById("regAge").value);
-//     document.getElementById('registerbox').style.display ='none';
-
-    
-
-// })
-
-
 // Check for blank in registration (UserName) and stop redirect
 
-
-function validateInput(format, input){
-    let regExp = new RegExp(format)
-
-    return regExp.test(input)
-}
-
-
-console.log(validateInput('^\\d+$', '452801'))
-
-
-function checkUsername(username) {
-    if (username !==''){
-        return true
-       var validUsername = true;
-    } else {
-       var validUsername = false;
-        alert('Please enter text in empty fields');
-        return false
-    }
-    return validUsername; 
-};
+// function checkUsername(username) {
+//     if (username !==''){
+//         return true
+//        var validUsername = true;
+//     } else {
+//        var validUsername = false;
+//         alert('Please enter text in empty fields');
+//         return false
+//     }
+//     return validUsername; 
+// };
 
 // Check for blank in registration (Password) and stop redirect
 
-function checkPassword(password) {
-    if (password !==''){
-       var validPassword = true;
-    } else {
-       var validPassword = false;
-        alert('Please enter text in empty fields');
-    }
-    return validPassword; 
-};
+// function checkPassword(password) {
+//     if (password !==''){
+//        var validPassword = true;
+//     } else {
+//        var validPassword = false;
+//         alert('Please enter text in empty fields');
+//     }
+//     return validPassword; 
+// };
 
 // Check for blank in registration (Name) and stop redirect
 
-function checkName(name) {
-    if (name !==''){
-       var validName= true;
-    } else {
-       var validName = false;
-        alert('Please enter text in empty fields');
-    }
-    return validName; 
-};
+// function checkName(name) {
+//     if (name !==''){
+//        var validName= true;
+//     } else {
+//        var validName = false;
+//         alert('Please enter text in empty fields');
+//     }
+//     return validName; 
+// };
 // Check for blank in registration (Lastname) and stop redirect
 
-function checkLastname(Lastname) {
-    if (Lastname !==''){
-       var validLastname= true;
-    } else {
-       var validLastname = false;
-        alert('Please enter text in empty fields');
-    }
-    return validLastname; 
-};
+// function checkLastname(Lastname) {
+//     if (Lastname !==''){
+//        var validLastname= true;
+//     } else {
+//        var validLastname = false;
+//         alert('Please enter text in empty fields');
+//     }
+//     return validLastname; 
+// };
 
 // Check for blank in registration (Email) and stop redirect
 
+//function checkEmail(Email) {
+   // if (Email !==''){
+   //    var validEmail= true;
+   // } else {
+   //    var validEmail = false;
+   //     alert('Please enter text in empty fields');
+   // }
+   // return validEmail; 
+//};
+
 function checkEmail(Email) {
-    if (Email !==''){
-       var validEmail= true;
-    } else {
-       var validEmail = false;
-        alert('Please enter text in empty fields');
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email))
+    {
+        return (true)
     }
-    return validEmail; 
-};
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+
 
 // Check for blank in registration (Age) and stop redirect
 
-function checkEmail(Age) {
-    if (Age !==''){
-       var validAge= true;
-    } else {
-       var validAge = false;
-        alert('Please enter text in empty fields');
-    }
-    return validAge; 
-};
+// function checkEmail(Age) {
+//     if (Age !==''){
+//        var validAge= true;
+//     } else {
+//        var validAge = false;
+//         alert('Please enter text in empty fields');
+//     }
+//     return validAge; 
+// };
 
 class User {
 
@@ -120,13 +100,12 @@ class User {
         this.password = password;
         this.userid = null;
 
-    }
-   
+    }  
+    
 }
 
 // Create array called users
 var users = JSON.parse(localStorage.getItem("users"));
-console.log(users)
   
 if(users === null){
   users = [];
@@ -168,7 +147,6 @@ if(users === null){
   
             //Set authenticatedUserId to userId to enable to change aunthenticatedUserId = null into new value
             aunthenticatedUserId = users[i].userId;
-            console.log (aunthenticatedUserId)
 
             return true;
   
@@ -202,14 +180,39 @@ document.getElementById("createaccount").addEventListener("click", function() {
     age = document.getElementById("regAge").value;
     email = document.getElementById("regEmail").value;
     password = document.getElementById("regPassword").value;
+    repeatpassword = document.getElementById("regRepeatpassword").value;
 
-    if(username == '' || firstname == '' || lastname == '' || age == '' || email == '' || password == ''){
-        alert('Please enter your personal information!')
+
+    // Check Username
+    
+    // Check Email
+    
+    
+    // Only comment
+    
+    function validateInput(userInput, regExp) {
+        var regex = new RegExp(regExp) 
+        
+        if(regex.test(userInput)){
+            return true
+        } else {
+            return false
+        }
+    }
+
+    if(!validateInput(username, '^[a-zA-Z0-9]{5,10}$') && !validateInput(age, '^[0-9]$') && !validateInput(email, '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/') && !validateInput(password, '^[a-zA-Z0-9]{4,8}$')) {
+        console.log('validateInput called')
         return false
+        
     }
     
 
-
+    // if(username == '' || firstname == '' || lastname == '' || age == '' || email == '' || password == '' || repeatpassword == ''){
+    //     alert('Please enter your personal information!')
+    //     return false
+    // }
+    
+    
     users.push(new User(username, firstname, lastname, age, email, password));
     console.log(users);
     localStorage.setItem('users',JSON.stringify(users));
@@ -225,8 +228,6 @@ document.getElementById("createaccount").addEventListener("click", function() {
     })
       });
     
-    //document.getElementById('createaccount').addEventListener('click', function(event){}
-
     // Redirect user to new html after successful login
       document.getElementById('login-btn').addEventListener('click' , function(event){
           event.preventDefault()
@@ -234,9 +235,11 @@ document.getElementById("createaccount").addEventListener("click", function() {
           var check = getInfo();
 
           if(check){
-            window.open('index2.html');
+            window.location.href = 'index2.html';
           }
       })
+
+
 
 
 
