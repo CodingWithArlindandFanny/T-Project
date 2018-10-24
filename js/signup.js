@@ -101,7 +101,7 @@ class User {
         this.userid = null;
 
     }  
-    
+
 }
 
 // Create array called users
@@ -150,7 +150,7 @@ if(users === null){
 
             return true;
   
-            // If Username or Password is not right than it counts down possib atletempts
+            // If Username or Password is not right than it counts down possible attempts
         }
     }
 
@@ -183,13 +183,6 @@ document.getElementById("createaccount").addEventListener("click", function() {
     repeatpassword = document.getElementById("regRepeatpassword").value;
 
 
-    // Check Username
-    
-    // Check Email
-    
-    
-    // Only comment
-    
     function validateInput(userInput, regExp) {
         var regex = new RegExp(regExp) 
         
@@ -200,11 +193,12 @@ document.getElementById("createaccount").addEventListener("click", function() {
         }
     }
 
-    if(!validateInput(username, '^[a-zA-Z0-9]{5,10}$') && !validateInput(age, '^[0-9]$') && !validateInput(email, '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/') && !validateInput(password, '^[a-zA-Z0-9]{4,8}$')) {
+    if(!(validateInput(username, '/[a-zA-Z0-9]{5,10}$/') && validateInput(age, '/[0-9]{2}$/') && validateInput(email, '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/') && validateInput(password, '/[a-zA-Z0-9]{4,8}$/'))) {
         console.log('validateInput called')
         return false
         
     }
+
     
 
     // if(username == '' || firstname == '' || lastname == '' || age == '' || email == '' || password == '' || repeatpassword == ''){
@@ -235,7 +229,7 @@ document.getElementById("createaccount").addEventListener("click", function() {
           var check = getInfo();
 
           if(check){
-            window.location.href = 'index2.html';
+            window.location.href = 'webshop.html';
           }
       })
 

@@ -5,7 +5,12 @@
     height: 150px;
     width: 350px;
     padding: 10px;
+   
     
+    }
+    [id="javascriptcourse"]{
+
+        clear: left; ;
     }
 
 button {
@@ -17,6 +22,7 @@ button {
     cursor: pointer;
     width: 109%;
     opacity: 0.75;
+    box-sizing: content-box
     }
     
     button:hover {
