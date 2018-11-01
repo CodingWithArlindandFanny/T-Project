@@ -5,37 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Course Catalog</title>
-    <script src='js/webshop.js'></script>
     <link rel="stylesheet" href="css/webshop.css">
 </head>
 <body>
-    <div id="javascriptcourse" class="container">
-        <img src="img/JavaScript.img" alt="JavaScript" >
-        <ul>
-            <li> JavaScript for Beginners</li>
-            <li> 42hrs</li>
-            <li> 150 DKK </li>
-        </ul>
-        <button id="addtocart"> Add to Cart </button><br>
-        <button id="buyproduct"> Buy Product</button>
+    <!-- Create Navigation Line and Framework for Each Course-->
+    <div class="navigation">
+        <div class="title">Your Shopping Cart</div>
+        <div class="shoppingCart">
+            <span>Cart</span><span id="itemCount"></span>
+        </div>     
     </div>
-    <!--<div id="htmlcourse" class="container">
-        <img src="img/HTML.img" alt="HTML" style="width:225px;height:225px;" >
-        <ul>
-            <li> HTML for Beginners</li>
-            <li> 36hrs</li>
-            <li> 150 DKK </li>
+    
+        <ul  class="courseShopCatalogue" id="shopItems">
+
         </ul>
-        <button id=addtocart> Add to Cart </button><br>
-        <button id=buyproduct> Buy Product</button>
-    </div>
-    <div id="pythoncourse" class="container">
-        <img src="img/Python.img" alt="Python" width="225" height="225px">
-        <ul>
-            <li> Python for Beginners</li>
-            <li> 42hrs</li>
-            <li> 150 DKK </li>
-        </ul>
-    </div>-->
+    <script src='js/webshop.js'></script>
 </body>
 </html>
