@@ -29,31 +29,31 @@ var html = "";
 for(i=0; i < courselist.length; i++ ){
     html += courselist[i].createHTML();
 }
-console.log('Hallo')
+console.log(courselist)
 
 course = document.getElementById('shopItems');
 course.innerHTML = html;
 
+var buttons = document.getElementsByClassName('addTocart')
 
-var buttons = document.getElementsByClassName('addToList');
-
-// Get the list of wishes from localstorage and parse it from json to array
-var wishes = [];
+var lineItem;
+if (localStorage.getItem('lineItem')==null){
+    lineItem = []
+} else { lineItem = JSON.parse(localStorage.getItem('lineItem'))
+}
+console.log(lineItem)
 
 for(u=0; u < buttons.length; u++){
-    buttons[u].addEventListener('click', function(e){
-
-        // Push wish to array
-        wishes.push(JSON.parse(this.dataset.object));
-        var listString = JSON.stringify(wishes);
-        localStorage.setItem('wishes', listString);
-
-    // check if there are duplicates, etc.. 
-
-        // Save list to localstorage, but remember to parse it to json first
-        console.log(this);
-    }); 
-    //buttons[u].addEventListener("mouseover", function(e){
-     //   alert("CLEVER");
-    //});
+    buttons[u].addEventListener('click', function(e) {
+        /*for (j=0; j< lineItem.length; j++) {
+            if (JSON.parse(this.dataset.object).name == lineItem[j].name){
+                alert ("Course already added to Cart");
+                return 
+            }
+        }*/
+        lineItem.push(JSON.parse(this.dataset.object));
+        var listString = JSON.stringify(lineItem);
+        localStorage.setItem('lineItem',listString);
+        
+    });
 }
