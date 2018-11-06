@@ -1,4 +1,9 @@
+
+var debug = 1;
+
 // Push new Course into Product Catalogue
+
+// this object into string for localstorage
 class Course {
     constructor(image, title, description, price){
         this.image = image;
@@ -18,19 +23,24 @@ class Course {
     }
 }
 
+// Push new Created Course into HTML 
 
 var courselist = [];
-courselist.push(new Course("./img/html.png", "JavaScript", "42h Javascript Course for Everybody", "100DKK"));
-courselist.push(new Course("", "Python","60h Python Course for Beginners", "2000DKK"));
-courselist.push(new Course("", "CSS", "Style your Webpage","5000DKK"));
-courselist.push(new Course("", "C++", "Learn Gaming Coding","500000DKK"));
+courselist.push(new Course("./img/javascript.png", "JavaScript", "42h Javascript Course for Everybody", 200));
+courselist.push(new Course("./img/python.png", "Python","60h Python Course for Beginners", 200));
+courselist.push(new Course("", "CSS", "Style your Webpage",500));
+courselist.push(new Course("", "C++", "Learn Gaming Coding",250));
+
+
+
+//  Define var html = "" as empty string; Loop through courselist; calls function createHTML
 
 var html = "";
 for(i=0; i < courselist.length; i++ ){
     html += courselist[i].createHTML();
 }
-console.log(courselist)
 
+// Display courses on html 
 course = document.getElementById('shopItems');
 course.innerHTML = html;
 
@@ -39,19 +49,23 @@ var buttons = document.getElementsByClassName('addTocart')
 var lineItem;
 if (localStorage.getItem('lineItem')==null){
     lineItem = []
-} else { lineItem = JSON.parse(localStorage.getItem('lineItem'))
+} else { 
+    lineItem = JSON.parse(localStorage.getItem('lineItem'))
 }
 console.log(lineItem)
 
 for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e) {
-        /*for (j=0; j< lineItem.length; j++) {
-            if (JSON.parse(this.dataset.object).name == lineItem[j].name){
+        for (j=0; j< lineItem.length; j++) {
+            if (JSON.parse(this.dataset.object).title == lineItem[j].title){
                 alert ("Course already added to Cart");
-                return 
+                return
             }
-        }*/
+        }
+
         lineItem.push(JSON.parse(this.dataset.object));
+
+        // Create new variable,  assign JSON.stringify(lineItem) as value to the variable; turns object lineItem to string
         var listString = JSON.stringify(lineItem);
         localStorage.setItem('lineItem',listString);
         

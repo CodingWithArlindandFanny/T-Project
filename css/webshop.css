@@ -11,7 +11,11 @@
     }
  
 .navigation{
-
+    
+    background-color: black;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
 }
 
 .courseShopCatalogue {
@@ -21,7 +25,8 @@
 .courseShopCatalogue li {
     border: 1px solid black;
     padding: 10px;
-    margin: 500px
+    margin: 500px;
+    
 }
 
 .courseShopCatalogue button {
@@ -31,11 +36,22 @@
     margin: 10px 0;
     border: none;
     cursor: pointer;
-    width: 109%;
+    width: 49%;
     opacity: 0.75;
     box-sizing: content-box
     }
     
     button:hover {
     opacity:1;
+    }
+
+.logoutbutton {
+    float: right;
+    background-color: rgb(49, 235, 43);
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    
     }
