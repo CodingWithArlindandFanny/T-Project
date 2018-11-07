@@ -41,8 +41,31 @@ for(i=0; i < courselist.length; i++ ){
 }
 
 // Display courses on html 
-course = document.getElementById('shopItems');
-course.innerHTML = html;
+document.getElementById('shopItems').innerHTML = html
+
+
+
+// Wait for user input & display courses accordingly
+document.getElementById('mySearch').addEventListener('input', function(e) {
+    
+    var searchFilter = e.target.value
+    html = ""
+    
+    var filteredCourseList = courselist.filter(function(course){
+        return course.title.toLowerCase().includes(searchFilter.toLowerCase())
+    })
+
+    for(i=0; i < filteredCourseList.length; i++ ){
+        html += filteredCourseList[i].createHTML();
+    }
+
+    document.getElementById('shopItems').innerHTML = html
+
+
+})
+
+
+
 
 var buttons = document.getElementsByClassName('addTocart')
 
