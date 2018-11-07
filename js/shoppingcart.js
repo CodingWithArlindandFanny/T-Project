@@ -44,6 +44,15 @@ for (i=0; i < storedCourses.length; i++){
 
 
 var displayShoppingCart = function() {
+
+    // Create Table of HTML 
+    var tb = document.createElement('tr')
+    tb.innerHTML = '<td>Image</td><td>Course Title</td><td>Description</td><td>Price</td>'
+    document.getElementById('myTable').appendChild(tb)
+ 
+    // Define var total and then loop through the lineitemlist 
+    // create tr for lineitemlist; add total price at last (appendchild)
+    
     var total = 0;
     for (i=0; i < lineItemlist.length; i++){
         var item = document.createElement('tr')
