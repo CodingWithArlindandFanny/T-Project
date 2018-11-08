@@ -28,8 +28,9 @@ class Course {
 var courselist = [];
 courselist.push(new Course("./img/javascript.png", "JavaScript", "42h Javascript Course for Everybody", 200));
 courselist.push(new Course("./img/python.png", "Python","60h Python Course for Beginners", 200));
-courselist.push(new Course("", "CSS", "Style your Webpage",500));
+courselist.push(new Course("./img/css.png", "CSS", "Style your Webpage",500));
 courselist.push(new Course("", "C++", "Learn Gaming Coding",250));
+
 
 
 
@@ -71,3 +72,7 @@ for(u=0; u < buttons.length; u++){
         
     });
 }
+
+//var filtercourses = function(){
+//    for (i=0; i <)
+//}
