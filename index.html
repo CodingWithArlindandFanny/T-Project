@@ -27,9 +27,9 @@
 </head>
 
 <body>
-<img src="JavaScript.png" id="jsimg" style="width: 150px; height: 150px; position: absolute; bottom:430px; left: 490px;"/>
-<img src="html&css.png" id="htmlimg" style="width: 150px; height: 150px; position: absolute; bottom:430px; left: 640px;" />
-<img src="Phytoncss.png" id="phytonimg" style="width: 150px; height: 150px; position: absolute; bottom:430px; left: 790px;"/>
+<img src="img/JavaScript.png" id="jsimg" style="width: 120px; height: 120px; position: absolute; bottom:420px; left: 455px;"/>
+<img src="img/HTML.png" id="htmlimg" style="width: 150px; height: 130px; position: absolute; bottom:420px; left: 575px;" />
+<img src="img/Phyton.png" id="phytonimg" style="width: 150px; height: 130px; position: absolute; bottom:420px; left: 720px;"/>
 
 <!--Log In-->
 <!-- Div splits screen into several parts-->
@@ -42,17 +42,27 @@
 
 <!-- Registration Form  -->
 
+
 <div id="registerbox" class="container">
         <input type="text" name="uname" placeholder="Username" id="regUsername"><br>
         <input type="text" name="fname" placeholder="First Name" id="regFirstName"><br>
         <input type="text" name="lname" placeholder="Last name" id="regLastName"><br>
+      
+
+<!--Drop Down Menu for Gender and Age-->
+       <!-- Sex
+        <select name="sex" id="usex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option> -->
         <input type="text" name="age" placeholder="Your Age" id="regAge"><br>
         <input type="text" name="email" placeholder="Email" id="regEmail"><br>
-        <input type="password" name="pswrd" placeholder="Password" id="regPassword">
-        <input type="password" name="rpswrd" placeholder="Repeat Password" id="regRepeatpassword"><br>
+        <input type="text" name="pswrd" placeholder="Password" id="regPassword">
+        <input type="text" name="rpswrd" placeholder="Repeat Password" id="regRepeatpassword"><br>
         <button id="createaccount"> Create your Account </button> 
 </div>
 
 <script src="js/signup.js"></script>
+<!--<script src="js/signupvalidation.js"></script>-->
 </body>
 </html>
