@@ -1,37 +1,41 @@
-// Change View between Login & Register Page
+// Change View between Login & Register Page by blocking the registration form and setting the login form to "none"
 document.getElementById('register-btn').addEventListener('click', function(event) {
     document.getElementById('registerbox').style.display = 'block'
     document.getElementById('loginForm').style.display = 'none'
 })
 
-
+class ShoppingCart {
+    constructor(){
+        this.courses = [],
+        this.totalAmount = 0
+    }
+}
 
 class User {
 
-    constructor(username, firstname, lastname, age, email, password, userid){
+    constructor(username, firstname, lastname, age, email, password){
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
         this.email = email;
         this.password = password;
-        this.userid = null;
+        this.shoppingCart = new ShoppingCart();
 
     }  
 
 }
+
+
 
 // Create array called users
 var users = JSON.parse(localStorage.getItem("users"));
   
 if(users === null){
   users = [];
-  users.push(new User("Fanny1", "Fanny", "Lundgreen", "25", "falu18ab@student.cbs.dk", "1234", 1));
-  users.push(new User("Arlind1", "Arlind", "Rexhepi", "24", "arre18ab@student.cbs.dk", "1234", 2));
+  users.push(new User("Fanny1", "Fanny", "Lundgreen", "25", "falu18ab@student.cbs.dk", "1234"));
+  users.push(new User("Arlind1", "Arlind", "Rexhepi", "24", "arre18ab@student.cbs.dk", "1234"));
 }
-
-  // In order to authenticate logged in user we create a variable and assign null
-  var aunthenticatedUserId = null
   
   // Define the buttons 
   var submit = document.getElementById('createaccount');
@@ -39,7 +43,7 @@ if(users === null){
   var register = document.getElementById ('register-btn');
   var login = document.getElementById('login-btn');
 
-  // Variabel to define the amount of wrong attempts you have
+  // Variable to define the amount of wrong attempts you have
   var attempt = 3;
   
   // Function to go through the User Data to match Username/Password
@@ -60,19 +64,19 @@ if(users === null){
           console.log (username + " is logged in!");
         
             //Push username from logged in User in the local storage 
-            localStorage.setItem("loggedInUser", users[i].firstname);
-  
-            //Set authenticatedUserId to userId to enable to change aunthenticatedUserId = null into new value
-            aunthenticatedUserId = users[i].userId;
+            localStorage.setItem("loggedInUser", users[i].email);
 
             return true;
   
-            // If Username or Password is not right than it counts down possible attempts
+            
         }
     }
 
+// If Username or Password is not right than it counts down possible attempts
 
-  // Disabling fields after 3 attempts.
+// Variable to define the amount of wrong attempts you have
+var attempt = 3;
+// Disabling fields after 3 attempts.
   if( attempt == 0){    
       document.getElementById("username").disabled = true;
       document.getElementById("password").disabled = true;
@@ -89,6 +93,7 @@ if(users === null){
     return false;    
   }
 
+// Signup Validation 
 
   function validateInput(userInput, regExp) {
     var regex = new RegExp(regExp) 
@@ -155,12 +160,16 @@ document.getElementById("createaccount").addEventListener("click", function() {
 
 });
         
+// EventListener that blocks the Login Form (=none)
+
     document.getElementById('register-btn').addEventListener('click', function(event){
         event.preventDefault()
         document.getElementById('loginForm').style.display = 'none'
     });
     
-    // Redirect user to new html after successful login
+
+
+// Redirect user to new html after successful login
       document.getElementById('login-btn').addEventListener('click' , function(event){
           event.preventDefault()
 
@@ -172,7 +181,12 @@ document.getElementById("createaccount").addEventListener("click", function() {
       })
 
 
+      //var me = new User("Marsimoto", "Marten", "Sievers", "26", "me@student.cbs.dk", "12345")
 
+      //me.shoppingCart.courses.forEach(function(){
+      //    console.log(course.title)
+      //})
+      
 
 
 

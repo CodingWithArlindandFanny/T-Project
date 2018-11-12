@@ -87,6 +87,13 @@ for(u=0; u < buttons.length; u++){
             }
         }
 
+
+        // Instead of pushing lineItems into localStorage,
+        // push them to the shoppingCart Array of the current user
+
+
+        //currentUser.shoppingCart.push(this.dataset.object)
+
         lineItem.push(JSON.parse(this.dataset.object));
 
         // Create new variable,  assign JSON.stringify(lineItem) as value to the variable; turns object lineItem to string
