@@ -35,18 +35,19 @@ if(users === null){
   users = [];
   users.push(new User("Fanny1", "Fanny", "Lundgreen", "25", "falu18ab@student.cbs.dk", "1234"));
   users.push(new User("Arlind1", "Arlind", "Rexhepi", "24", "arre18ab@student.cbs.dk", "1234"));
+  localStorage.setItem("users",JSON.stringify(users));
 }
   
-  // Define the buttons 
+// Define the buttons 
   var submit = document.getElementById('createaccount');
   var logout = document.getElementById('logout-btn');
   var register = document.getElementById ('register-btn');
   var login = document.getElementById('login-btn');
 
-  // Variable to define the amount of wrong attempts you have
+// Variable to define the amount of wrong attempts you have
   var attempt = 3;
   
-  // Function to go through the User Data to match Username/Password
+// Function to go through the User Data to match Username/Password
   function getInfo() {
 
     var username = document.getElementById("username").value;
@@ -57,13 +58,13 @@ if(users === null){
         return false
     }
 
-  // Loop that goes through the User Data to idetify right or wrong Username/Password
+// Loop that goes through the User Data to idetify right or wrong Username/Password
     for (let i = 0; i < users.length; i++) {
 
         if (username == users[i].username && password == users[i].password) {
           console.log (username + " is logged in!");
         
-            //Push username from logged in User in the local storage 
+//Push username from logged in User in the local storage 
             localStorage.setItem("loggedInUser", users[i].email);
 
             return true;
@@ -82,7 +83,7 @@ var attempt = 3;
       document.getElementById("password").disabled = true;
       document.getElementById("login-btn").disabled = true;
   
-  //Return false to get out of function
+//Return false to get out of function
   return false;
   } else {
   
@@ -181,11 +182,7 @@ document.getElementById("createaccount").addEventListener("click", function() {
       })
 
 
-      //var me = new User("Marsimoto", "Marten", "Sievers", "26", "me@student.cbs.dk", "12345")
 
-      //me.shoppingCart.courses.forEach(function(){
-      //    console.log(course.title)
-      //})
       
 
 
