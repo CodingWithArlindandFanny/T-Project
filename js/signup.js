@@ -4,6 +4,20 @@ document.getElementById('register-btn').addEventListener('click', function(event
     document.getElementById('loginForm').style.display = 'none'
 })
 
+document.getElementById('register-btn').addEventListener('click', function(event) {
+    document.getElementById('registerbox').style.display = 'block'
+    document.getElementById('jsimg').style.display = 'none'
+})
+
+document.getElementById('register-btn').addEventListener('click', function(event) {
+    document.getElementById('registerbox').style.display = 'block'
+    document.getElementById('htmlimg').style.display = 'none'
+})
+
+document.getElementById('register-btn').addEventListener('click', function(event) {
+    document.getElementById('registerbox').style.display = 'block'
+    document.getElementById('phytonimg').style.display = 'none'
+})
 
 
 class User {
@@ -105,7 +119,7 @@ if(users === null){
 function validator(){
 
     if(!validateInput(username, '^[a-zA-Z0-9]{5,10}$')){
-        alert('Username must contain min 5 - max 10 charakters')
+        alert('Username must contain min 5 - max 10 characters')
         return false;
     }
 
@@ -147,6 +161,7 @@ document.getElementById("createaccount").addEventListener("click", function() {
         
         document.getElementById('registerbox').style.display = 'none';
         document.getElementById('loginForm').style.display = 'block';
+
 
     }else {
         console.log("Does not work");

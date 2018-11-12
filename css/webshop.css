@@ -1,44 +1,60 @@
 .container{
-    position: absolute;
-    top: calc(30% - 60px);
-    left: calc(40% - 50px);
-    height: 150px;
-    width: 350px;
-    padding: 10px;
-    background-color: black
-   
-    
+    top: calc(60% - 60px);
+    left: calc(200% - 50px);
+    height: 450px;
+    width: 150px;
+    padding: 70px;
     }
  
 .navigation{
-    
-    background-color: white;
     overflow: hidden;
-    padding: 0px;
-    margin: 0px;
+    padding: 60px;
+    margin: 5px;
+    background-image: linear-gradient(-90deg,rgb(136, 168, 179), white );
+
 }
 
 .courseShopCatalogue {
     list-style-type: none;
+    margin: 40px;
+    padding: 30px;
+    height: 30px;
+
 }
 
 .courseShopCatalogue li {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 500px;
+    border: 2px solid black;
+    padding: 60px;
+    margin: 12px;
+    height: 160px;
+    width: 172px;
+    float: left;     
+    background-color:white;
     
+
+  
+}
+
+/* Trying to edit the products, text etc.*/
+
+.courseShopCatalogue shopItems {
+    color: black;
+    font-size: 10%;
+    opacity: 1.65;
+
+   
 }
 
 .courseShopCatalogue button {
-    background-color: rgb(49, 235, 43);
-    color: white;
-    padding: 15px 20px;
-    margin: 10px 0;
+    background-color: blue;
+    color: white; font-size: 70%;
+    padding: 8px;
+    margin: -10px;
     border: none;
     cursor: pointer;
-    width: 49%;
-    opacity: 0.75;
-    box-sizing: content-box
+    opacity: 0.65;
+    box-sizing: content-box;
+    position: absolute; height: 20px; width: 180px;padding-bottom: 110;
     }
     
     button:hover {
@@ -47,37 +63,36 @@
 
 .logoutbutton {
     float: right;
-    background-color: rgb(49, 235, 43);
+    background-color: rgb(43, 126, 235);
     color: white;
     padding: 15px 20px;
     margin: 10px 0;
     border: none;
     cursor: pointer;
+    width: 10%;
     
     }
+
+
 
 /* Style the search box */
 #mySearch {
     width: 100%;
     font-size: 18px;
     padding: 11px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
+    background-color: linear-gradient(-90deg, red, yellow);
+
   }
-   /* Style the navigation menu */
-  #myMenu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-   /* Style the navigation links */
-  #myMenu li a {
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block;
-  }
-   #myMenu li a:hover {
-    background-color: rgb(204, 240, 204);
-  }
+
+
+  .MyCartbutton {
+    float: right;
+    background-color:blue;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+}
