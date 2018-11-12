@@ -4,30 +4,12 @@ document.getElementById('register-btn').addEventListener('click', function(event
     document.getElementById('loginForm').style.display = 'none'
 })
 
-<<<<<<< HEAD
-document.getElementById('register-btn').addEventListener('click', function(event) {
-    document.getElementById('registerbox').style.display = 'block'
-    document.getElementById('jsimg').style.display = 'none'
-})
-
-document.getElementById('register-btn').addEventListener('click', function(event) {
-    document.getElementById('registerbox').style.display = 'block'
-    document.getElementById('htmlimg').style.display = 'none'
-})
-
-document.getElementById('register-btn').addEventListener('click', function(event) {
-    document.getElementById('registerbox').style.display = 'block'
-    document.getElementById('phytonimg').style.display = 'none'
-})
-
-=======
 class ShoppingCart {
     constructor(){
         this.courses = [],
         this.totalAmount = 0
     }
 }
->>>>>>> b0d29926dde039dbb64f228b041b1c088cad296f
 
 class User {
 

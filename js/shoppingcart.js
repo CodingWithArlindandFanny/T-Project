@@ -58,7 +58,7 @@ var displayShoppingCart = function() {
     // 1. parse all user array from localStorage
     // 2. find current user ffrom localStorage
     
-    /*var currentUser = JSON.stringify(allUsers)
+    var currentUser = JSON.parse(localStorage.getItem('users'))
     localStorage.setItem('users',currentUser);
 
     for(i=0; i<allUsers.length; i++) {
@@ -68,7 +68,7 @@ var displayShoppingCart = function() {
         }
     }
 
-    // For dispayling
+    // For displaying
 
    // for(i=0; i < activeUser.shoppingCart.courses.length; i++) {
 

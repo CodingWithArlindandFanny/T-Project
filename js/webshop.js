@@ -26,13 +26,7 @@ class Course {
 // Push new Created Course into HTML 
 
 var courselist = [];
-<<<<<<< HEAD
 courselist.push(new Course("", "CSS", "Style your Webpage",500));
-=======
-courselist.push(new Course("./img/javascript.png", "JavaScript", "42h Javascript Course for Everybody", 200));
-courselist.push(new Course("./img/python.png", "Python","60h Python Course for Beginners", 200));
-courselist.push(new Course("./img/css.png", "CSS", "Style your Webpage",500));
->>>>>>> b0d29926dde039dbb64f228b041b1c088cad296f
 courselist.push(new Course("", "C++", "Learn Gaming Coding",250));
 courselist.push(new Course("", "Html", "Html Course for beginners",200));
 courselist.push(new Course("", "PHP", "PHP Course Online",300));
