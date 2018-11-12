@@ -26,13 +26,7 @@ class Course {
 // Push new Created Course into HTML 
 
 var courselist = [];
-<<<<<<< HEAD
 courselist.push(new Course("", "CSS", "Style your Webpage",500));
-=======
-courselist.push(new Course("./img/javascript.png", "JavaScript", "42h Javascript Course for Everybody", 200));
-courselist.push(new Course("./img/python.png", "Python","60h Python Course for Beginners", 200));
-courselist.push(new Course("./img/css.png", "CSS", "Style your Webpage",500));
->>>>>>> b0d29926dde039dbb64f228b041b1c088cad296f
 courselist.push(new Course("", "C++", "Learn Gaming Coding",250));
 courselist.push(new Course("", "Html", "Html Course for beginners",200));
 courselist.push(new Course("", "PHP", "PHP Course Online",300));
@@ -76,8 +70,6 @@ document.getElementById('mySearch').addEventListener('input', function(e) {
 })
 
 
-
-
 var buttons = document.getElementsByClassName('addTocart')
 
 var lineItem;
@@ -116,3 +108,9 @@ for(u=0; u < buttons.length; u++){
 //var filtercourses = function(){
 //    for (i=0; i <)
 //}
+
+// Redirect user to Shopping Cart
+document.getElementById('Shoppingcart-btn').addEventListener('click' , function(event){
+    event.preventDefault()
+      window.open("shoppingcart.html");
+    });

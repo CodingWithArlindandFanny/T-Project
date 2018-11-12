@@ -108,3 +108,14 @@ var displayShoppingCart = function() {
 
 displayShoppingCart()
 
+// Redirect user to Purchase Page
+document.getElementById('Shoppingcart-btn').addEventListener('click' , function(event){
+    event.preventDefault()
+      window.open("Purchasepage.html");
+    });
+
+    // Redirect user to Purchase Page
+document.getElementById('purchase-btn').addEventListener('click' , function(event){
+    event.preventDefault()
+      window.open("Purchasepage.html");
+    });
