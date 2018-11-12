@@ -1,7 +1,15 @@
+var allUsers = JSON.parse(localStorage.getItem("users"));
+console.log(allUsers)
 
+
+
+// var storedCourses: get all courses which are stored in lineItem 
 
 var storedCourses = JSON.parse(localStorage.getItem('lineItem'));
 console.log(storedCourses)
+
+
+// We created a class for the items in the shoppingcart 
 
 class lineItemCourse {
     constructor(image, title, description, price){
@@ -43,18 +51,45 @@ for (i=0; i < storedCourses.length; i++){
 }
 
 
+// We defined the function to display the shopping cart in the shoppingcart.html
+
 var displayShoppingCart = function() {
 
-    // Create Table of HTML 
+    // 1. parse all user array from localStorage
+    // 2. find current user ffrom localStorage
+    
+    /*var currentUser = JSON.stringify(allUsers)
+    localStorage.setItem('users',currentUser);
+
+    for(i=0; i<allUsers.length; i++) {
+        
+        if(currentUser.email == allUsers[i].email) {
+            
+        }
+    }
+
+    // For dispayling
+
+   // for(i=0; i < activeUser.shoppingCart.courses.length; i++) {
+
+    //}*/
+
+
+// Create Table of HTML 
+
     var tb = document.createElement('tr')
     tb.innerHTML = '<td>Image</td><td>Course Title</td><td>Description</td><td>Price</td>'
     document.getElementById('myTable').appendChild(tb)
  
-    // Define var total and then loop through the lineitemlist 
-    // create tr for lineitemlist; add total price at last (appendchild)
     
+
+ // Define var total and then loop through the lineitemlist 
+
     var total = 0;
     for (i=0; i < lineItemlist.length; i++){
+
+ // create tr for lineitemlist; add total price at last (appendchild)
+
         var item = document.createElement('tr')
         item.innerHTML = lineItemlist[i].createHTML()
         console.log(item)
@@ -69,14 +104,7 @@ var displayShoppingCart = function() {
 }
 
 
+// Here the function for displaying the Shopping cart is called!
 
 displayShoppingCart()
 
-// var html = "";
-// for (i=0; i < lineItemlist; i++){
-//     html += lineItemlist[i].createHTML();
-// }
-
-// table = document.getElementById('myTable');
-// tbody = table.getElementsByTagName('tbody');
-// tbody[0].innerHTML = html;
