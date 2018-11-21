@@ -1,26 +1,8 @@
 
-var debug = 1;
-
-// Push new Course into Product Catalogue
-
-// this object into string for localstorage
-class Course {
-    constructor(image, title, description, price){
-        this.image = image;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.buttonCart = "<button class='addTocart' name='add to cart' data-object='" + JSON.stringify(this) + "'>Add to Cart</button>";
-    }
-
-    createHTML(){
-        return "<li class='shopItem'><img width='200px' src=" + this.image + ">" +
-        "<h1>"+ this.title + "</h1>" +
-        "<p>" + this.description + "</p>" +
-        "<p>Price: " + this.price + "</p>" +
-        this.buttonCart +
-        "</li>"
-    }
+var users = JSON.parse(localStorage.getItem("users"));
+  
+if(users === null){
+  document.location.href = 'signup.html'
 }
 
 // Push new Created Course into HTML 
@@ -28,17 +10,12 @@ class Course {
 var courselist = [];
 courselist.push(new Course("", "CSS", "Style your Webpage",500));
 courselist.push(new Course("", "C++", "Learn Gaming Coding",250));
-courselist.push(new Course("", "Html", "Html Course for beginners",200));
-courselist.push(new Course("", "PHP", "PHP Course Online",300));
-courselist.push(new Course("", "Perl", "Exclusive Perl Course",500));
+courselist.push(new Course("", "HTMLl", "HTML Course for Beginners",200));
+courselist.push(new Course("", "PHP", "PHP for Beginners",300));
+courselist.push(new Course("", "Perl", "Introduction to Perl",500));
 courselist.push(new Course("", "Ruby", "Advanced Ruby Course",200));
 courselist.push(new Course("", "JavaScript", "42h Javascript Course", 200));
 courselist.push(new Course("", "Python","60h Python Course", 200));
-
-
-
-
-//  Define var html = "" as empty string; Loop through courselist; calls function createHTML
 
 var html = "";
 for(i=0; i < courselist.length; i++ ){
@@ -48,69 +25,64 @@ for(i=0; i < courselist.length; i++ ){
 // Display courses on html 
 document.getElementById('shopItems').innerHTML = html
 
+                             /* SEARCH FILTER FUNCTIONALITY */
+/****************************************************************************************/
 
 
 // Wait for user input & display courses accordingly
 document.getElementById('mySearch').addEventListener('input', function(e) {
     
     var searchFilter = e.target.value
+    //  Define var html = "" as empty string; Loop through courselist; calls function createHTML
     html = ""
     
     var filteredCourseList = courselist.filter(function(course){
         return course.title.toLowerCase().includes(searchFilter.toLowerCase())
     })
-
+    
     for(i=0; i < filteredCourseList.length; i++ ){
         html += filteredCourseList[i].createHTML();
     }
-
+    
     document.getElementById('shopItems').innerHTML = html
-
-
 })
+
+                             /* ADD TO CART FUNCTIONALITY */
+/****************************************************************************************/
 
 
 var buttons = document.getElementsByClassName('addTocart')
 
-var lineItem;
-if (localStorage.getItem('lineItem')==null){
-    lineItem = []
-} else { 
-    lineItem = JSON.parse(localStorage.getItem('lineItem'))
-}
-console.log(lineItem)
-
 for(u=0; u < buttons.length; u++){
     buttons[u].addEventListener('click', function(e) {
-        for (j=0; j< lineItem.length; j++) {
-            if (JSON.parse(this.dataset.object).title == lineItem[j].title){
-                alert ("Course already added to Cart");
-                return
+        
+        for (i=0; i < users.length; i++){
+           
+            if(users[i].userid == localStorage.getItem('loggedInUser')){
+
+                for(j=0; j < users[i].shoppingCart.length; j++) {
+
+                    if (JSON.parse(this.dataset.object).title == users[i].shoppingCart[j].title){
+                        alert ("Course already added to Cart");
+                        return false
+                    }
+                }
+
+                users[i].shoppingCart.push(JSON.parse(this.dataset.object))
+                localStorage.setItem('users', JSON.stringify(users))
             }
         }
-
-
-        // Instead of pushing lineItems into localStorage,
-        // push them to the shoppingCart Array of the current user
-
-
-        //currentUser.shoppingCart.push(this.dataset.object)
-
-        lineItem.push(JSON.parse(this.dataset.object));
-
-        // Create new variable,  assign JSON.stringify(lineItem) as value to the variable; turns object lineItem to string
-        var listString = JSON.stringify(lineItem);
-        localStorage.setItem('lineItem',listString);
         
     });
 }
-
-//var filtercourses = function(){
-//    for (i=0; i <)
-//}
-
+  
+    
+                                /* DOM MANIPULATION */
+/****************************************************************************************/
+    
 // Redirect user to Shopping Cart
-document.getElementById('Shoppingcart-btn').addEventListener('click' , function(event){
-    event.preventDefault()
-      window.open("shoppingcart.html");
-    });
+document.getElementById('Shoppingcart-btn').addEventListener('click' , function(){
+    console.log('Test')
+    window.location.href = "shoppingcart.html"
+});
+    
