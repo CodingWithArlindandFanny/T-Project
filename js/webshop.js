@@ -10,7 +10,7 @@ if(users === null){
 var courselist = [];
 courselist.push(new Course("", "CSS", "Style your Webpage",500));
 courselist.push(new Course("", "C++", "Learn Gaming Coding",250));
-courselist.push(new Course("", "HTMLl", "HTML Course for Beginners",200));
+courselist.push(new Course("", "HTML", "Course for Beginners",200));
 courselist.push(new Course("", "PHP", "PHP for Beginners",300));
 courselist.push(new Course("", "Perl", "Introduction to Perl",500));
 courselist.push(new Course("", "Ruby", "Advanced Ruby Course",200));

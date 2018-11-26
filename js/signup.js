@@ -160,3 +160,8 @@ document.getElementById('register-btn').addEventListener('click', function(event
     document.getElementById('loginForm').style.display = 'none'
 });
 
+// Change View between Login & Register Page & block the image displayed in the login page.
+document.getElementById('register-btn').addEventListener('click', function(event) {
+    document.getElementById('registerbox').style.display = 'block'
+    document.getElementById('image').style.display = 'none'
+})
