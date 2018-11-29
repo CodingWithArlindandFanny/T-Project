@@ -141,7 +141,7 @@ document.getElementById("Checkout-btn").addEventListener("click", function() {
             activeUser.shoppingCart = []
 
             localStorage.setItem('users',JSON.stringify(users));
-// 3. Empty shopping cart when order is created
+// 3. Empty shopping cart when order is created3
 
 
               window.open("checkoutcompleted.html");
